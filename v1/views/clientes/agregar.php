@@ -34,11 +34,9 @@
                 <input type="submit" id="btn-agregar" class="btn btn-danger  btn-user btn-block" value="Registrar cliente"> 
               </form>
               <hr>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>

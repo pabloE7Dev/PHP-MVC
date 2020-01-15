@@ -43,10 +43,10 @@
                   </div>                 
                   <form id="dataForm" class="user">
                     <div class="form-group">
-                      <input type="text" id="user" name="user" class="form-control form-control-user" id="exampleInputEmail" placeholder="Usuario" required>
+                      <input type="text" id="user" name="user" class="form-control form-control-user" id="exampleInputEmail" placeholder="default : admin" required>
                     </div>
                     <div class="form-group">
-                      <input type="password" id="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
+                      <input type="password" id="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="default : admin" required>
                     </div>
  
                     <input type="submit" id="btn-login" class="btn btn-danger  btn-user btn-block" value="Ingresar">                

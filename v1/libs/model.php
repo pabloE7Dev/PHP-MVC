@@ -106,6 +106,32 @@ class Model
         }
     }
 
+
+    function consultaPreparada($nombre_tabla, $parametros){ // retorna la consulta preparada para evitar inyecciones sql example: insert into usuarios (usuario, password) values(:usuarios, :password)
+        $campos = '(';
+        $camposPrepare = '(';
+        $i = 0;
+
+        foreach (($parametros['data']) as $clave => $valor) {
+ 
+            $campos .=  $clave;
+            $camposPrepare .= ":" . $clave;
+           
+            if ($i < count($parametros['data']) -1) { //
+
+                $campos .= ', ';
+                $camposPrepare .= ', ';
+            $i++;
+            }else{
+
+                $campos .= ')';
+                $camposPrepare .= ')';
+            } 
+        }
+        $sql = "INSERT INTO " . $nombre_tabla .  $campos . " VALUES " . $camposPrepare;
+        return $sql;
+    }
+
 }
 
 

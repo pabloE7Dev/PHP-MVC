@@ -20,29 +20,11 @@ class ClientesModel extends Model
 
 
 	function insert_model($nombre_tabla, $parametros = null){
-		$campos = '(';
-        $camposPrepare = '(';
-        $i = 0;
 
-        foreach (($parametros['data']) as $clave => $valor) {
- 
-            $campos .=  $clave;
-            $camposPrepare .= ":" . $clave;
-           
-            if ($i < count($parametros['data']) -1) { //
-
-                $campos .= ', ';
-                $camposPrepare .= ', ';
-            $i++;
-            }else{
-
-                $campos .= ')';
-                $camposPrepare .= ')';
-            } 
-        }        
+		$sql = $this->consultaPreparada($nombre_tabla, $parametros); //obtiene la consula preparada para evitar inyecciones sql          
 
         try {
-        	$sql = "INSERT INTO " . $nombre_tabla .  $campos . " VALUES " . $camposPrepare;
+
             //return $sql;
         	$consulta = $this->db->connect()->prepare($sql);
 

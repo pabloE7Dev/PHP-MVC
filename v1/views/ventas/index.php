@@ -39,15 +39,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody id="tbody-productos">   
-            <tr class="border-top">
-              <td>Producto1</td>
-              <td>20/06/2018</td>
-              <td>jose lopez</td>
-              <td>$30000</td>
-              <td></td>
-              <td>X</td>
-            </tr>         
+            <tbody id="tbody-ventas">           
             </tbody>
           </table>
         </div>

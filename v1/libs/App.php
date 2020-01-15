@@ -7,7 +7,7 @@ Class App{
 
         $url= isset($_GET['url']) ? $_GET['url']: null; //verifica si existe una url
 
-		$url = rtrim($url, '/'); // serapa al primer controlador de los demas metodos a ejecutar( demas como parametros)
+		$url = rtrim($url, '/'); // serapa al primer controlador de los demas metodos a ejecutar
         
         $url = explode('/', $url); //divide cada unos de los parametros que estamos enviando
 
@@ -33,9 +33,9 @@ Class App{
 
             $nparametros = sizeof($url);
             
-            if ($nparametros > 1) { // verificamos si existe un metodo
+            if ($nparametros > 1) { // verifica si existe un metodo
 
-                if ($nparametros > 2) { // verificamos si exinten parametros
+                if ($nparametros > 2) { // verifica si exinten parametros
 
                     $params = [];
                     for ($i=2; $i<$nparametros; $i++) { 

@@ -20,7 +20,7 @@ input[type='radio']:focus, input[type='checkbox']:focus, input:focus {
 }
 .form .search:focus{
 	transition: 0.5s;
-	border-bottom: 1px solid red;
+	border-bottom: 1px solid #713B2F;
 }
 
 

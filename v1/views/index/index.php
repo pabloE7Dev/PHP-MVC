@@ -60,11 +60,21 @@
 
       <!-- Nav Ventas -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo URL . 'ventas'; ?>">
+        <a class="nav-link" href="ventas" id="<?php echo URL . 'ventas'; ?>" data-toggle="collapse" data-target="#collapseventas" aria-expanded="true" aria-controls="collapseventas">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Ventas</span></a>
+          <span>Ventas</span>
+        </a>
+        <div id="collapseventas" class="collapse" >           
+          <a class="nav-link" href="<?php echo URL . 'ventas'; ?>">
+            <span>Ventas</span>
+          </a>       
+        </div>
+        <div id="collapseventas" class="collapse" >           
+          <a class="nav-link" href="<?php echo URL . 'ventas/agregar'; ?>">
+            <span>Generar Venta</span>
+          </a>       
+        </div>
       </li>
-
       <!-- Nav Clientes -->
       <li class="nav-item">
         <a class="nav-link" href="clientes" id="<?php echo URL . 'clientes'; ?>" data-toggle="collapse" data-target="#collapseclientes" aria-expanded="true" aria-controls="collapseclientes">
@@ -81,7 +91,6 @@
             <span>Registrar Cliente</span>
           </a>       
         </div>
-
       </li>
       <!-- Nav Productos -->
       <li class="nav-item">

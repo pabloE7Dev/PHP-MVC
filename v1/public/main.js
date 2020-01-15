@@ -1,6 +1,6 @@
 
 
-const url = 'http://localhost/mvc/v1/';
+const url = 'http://localhost/mvc/v1';
 
 //HACE LA PETICION 
 function httpRequest(method, url, callback){ 
