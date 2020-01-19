@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-01-2020 a las 15:54:12
+-- Tiempo de generación: 20-01-2020 a las 00:39:49
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.3.13
 
@@ -42,7 +42,8 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idcliente`, `nombre`, `apellido`, `empresa`, `celular`, `email`) VALUES
-(38, 'jose', 'lopez', 'empresa1', '1522562123', 'jose@gmail.com');
+(38, 'jose', 'lopez', 'empresa1', '1522562123', 'jose@gmail.com'),
+(39, 'pedro', 'castro', 'empresa1', '12512050', 'asdasd@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,7 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`idempleado`, `nombre`, `apellido`, `dni`, `edad`, `horas`, `sueldo`, `celular`, `direccion`, `email`) VALUES
-(34, 'asd', 'sad', '38415', '', '', '', '163561', 'asdasd', '');
+(41, 'pepe', 'lopez', '384122154', '42', '8', '30000', '351111251', 'pepe alem', 'pepe@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`idproductos`, `nombre`, `descripcion`, `precioCosto`, `precioVenta`, `stock`) VALUES
-(20, 'producto1', '                  asdasd', 265, 265, 12);
+(20, 'producto1', '                  asdasd', 265, 265, 12),
+(23, 'lata1', 'es una lata', 250, 360, 1500),
+(24, 'lata v1', 'es una lata                  ', 250, 620, 25),
+(25, 'lata v2', '                  ', 5, 10, 200);
 
 -- --------------------------------------------------------
 
@@ -166,15 +170,17 @@ CREATE TABLE `ventas` (
   `fecha_venta` date NOT NULL,
   `idproducto` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
-  `idcliente` int(11) NOT NULL
+  `idcliente` int(11) NOT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`idventas`, `fecha_venta`, `idproducto`, `idusuario`, `idcliente`) VALUES
-(1, '2020-01-01', 20, 2, 38);
+INSERT INTO `ventas` (`idventas`, `fecha_venta`, `idproducto`, `idusuario`, `idcliente`, `total`) VALUES
+(2, '2020-01-05', 20, 2, 38, 250),
+(3, '2020-01-05', 23, 2, 39, 250);
 
 --
 -- Índices para tablas volcadas
@@ -234,13 +240,13 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `idempleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `idempleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
@@ -252,7 +258,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idproductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `rolusuario`
@@ -270,7 +276,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
