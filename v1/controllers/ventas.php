@@ -17,7 +17,9 @@ Class Ventas extends Controller{
 	//     vistas     //
 
 	function render(){
+        //$this->view->jsModulo = '';
         $this->vistaController('ventas/index');
+
     }
     function agregar(){
         $this->vistaController('ventas/agregar');

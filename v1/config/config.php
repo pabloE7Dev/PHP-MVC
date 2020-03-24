@@ -1,6 +1,6 @@
 <?php
 
-define('URL', 'http://localhost/mvc/v1/');
+define('URL', 'http://localhost/app/v1/');
 
 define('HOST', 'localhost');
 define('DB', 'db');

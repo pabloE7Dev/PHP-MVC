@@ -1,10 +1,16 @@
 var panel_respuesta = $("#respuesta-request").hide();
 var tbody_tabla = $('#tbody-ventas');
 
-get_ventas();
 
-lista_clientes();
+var array_lista_productos = []; 
+
+get_ventas();
+lista_clientes(); 
 lista_productos();
+
+
+
+        //////     VENTAS     //////       
 
 //  Search
 
@@ -117,14 +123,14 @@ $(document).on('click', '.delete_venta', function(){
 
 
 
-//OBTIENE TODAS LAS VENTAS
-function lista_clientes(){
+
+function lista_clientes(){ //OBTIENE LOS CLIENTES
 
   $.get(url + 'ventas/obtenerClientes/', function(response) {
 
 	let respuesta = JSON.parse(response);
 
-	let template = '';
+	let template = '<option value="Seleccionar">Seleccionar</option>';
 
 	respuesta.forEach(element => {
 
@@ -140,20 +146,20 @@ function lista_clientes(){
 
 }
 
-function lista_productos(){
+function lista_productos(){ //OBTIENE LOS PRODUCTOS
 
   $.get(url + 'ventas/obtenerProductos/', function(response) {
 
 	let respuesta = JSON.parse(response);
 
-	let template = '';
+	let template = '<option value="Seleccionar">Seleccionar</option>';
 
 	respuesta.forEach(element => {
 
 		template+= 
-			`
-			<option>${element.nombre}</option>			
-			`      
+			`			
+			<option optionSelected="${element.precioVenta}">${element.nombre}</option>			
+        	`	
 	});
 		
 	$('#selectProductos').html(template);   
@@ -161,3 +167,74 @@ function lista_productos(){
   });
 
 }
+
+
+
+
+
+
+        //////     AGREGAS VENTAS     //////
+
+
+
+function agregar_lista_productos(){
+
+  if ($('#selectProductos').val() == "Seleccionar") {
+	alert('debe seleccionar un producto');
+  }
+  else if ($('#cliente').val() == "Seleccionar") {
+		alert('debe seleccionar un cliente');
+  }
+  else if ($('#cantidad').val() == "") {
+		alert('debe seleccionar una cantidad');
+  }else{
+	
+
+	let template = "";
+    
+    array_lista_productos.push({
+
+        producto:$('#selectProductos').val(),
+        precioUnidad:$('#precioUnidad').val(),
+        cantidad:$('#cantidad').val(),
+        total:$('#total').val()
+    });
+    console.log(array_lista_productos);
+
+    array_lista_productos.forEach( lista =>{
+		console.log(lista.producto);
+		template += `
+		  <tr>
+            <td>${lista.producto}</td>
+            <td>${lista.precioUnidad}</td>
+            <td>${lista.cantidad}</td>
+            <td>${lista.total}</td>
+		  </tr>
+		`
+	});
+
+	$('#tbodyProductos').html(template);
+	$("#dataForm")[0].reset();
+  }
+}
+
+
+function obtenerOption(param){
+
+	//let id = $('#selectProductos').val();	
+	let precio = $('option:selected', param).attr('optionSelected');
+
+    $('#precioUnidad').val(precio);
+}
+
+	
+
+function cantidadProducto(){
+
+	let cantidad = $('#cantidad').val();
+	let precio = $('#precioUnidad').val();
+	let total = cantidad * precio;
+
+	$('#total').val(total);
+}
+
